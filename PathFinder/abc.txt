@@ -1,0 +1,63 @@
+if (!openList.Contains(n))
+                        {
+                            n.parent = currentNode;
+                            n.G = currentNode.G + 10;
+                            n.H = GetHeuristicValue(n, end);
+                            n.F = n.G + n.H;
+                            openList.Add(n);
+                        }
+                        else
+                        {
+                            if (currentNode.G + 10 < n.G)
+                            {
+                                n.parent = currentNode;
+                                n.G = currentNode.G + 10;
+                                n.H = GetHeuristicValue(n, end);
+                                n.F = n.G + n.H;
+                                openList.Sort(fc);
+                            }
+                        }
+
+
+
+
+//bool hasAdded = false;
+            Node currentNode;
+            start.H = GetHeuristicValue(start, end);
+            start.F = start.G + start.H;
+            openList.Add(start);
+            FComparer fc = new FComparer();
+            
+                openList.Sort(fc);
+                currentNode = openList.ElementAt(0);
+                closedList.Add(currentNode);
+                if (currentNode.Equals(end))
+                {
+                    return end;
+                }
+
+                openList.Remove(currentNode);
+                closedList.Add(currentNode);
+
+                List<Node> adjNodes = AdjacentElements(grid, start.row, start.col);
+                foreach (Node n in adjNodes)
+                {
+                    if (!(n.priority == 3 || n.priority == 2))
+                    {
+                        if (closedList.Contains(n))
+                            continue;
+
+                        int newG = currentNode.G + 10;
+
+                        if (!openList.Contains(n) || newG < n.G)
+                        {                         
+                            n.parent = currentNode;
+                            n.G = newG;
+                            n.F = n.G + GetHeuristicValue(n, end);
+                            if (!openList.Contains(n))
+                            {
+                                openList.Add(n);
+                            }
+                        }
+                    }
+                }

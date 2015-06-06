@@ -16,6 +16,10 @@ namespace GameEntity
 
         public LifePack()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 4;
             texture = Util.Content.Load<Texture2D>("lifepack");
             isPassable = true;
         }

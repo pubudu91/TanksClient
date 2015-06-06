@@ -13,6 +13,10 @@ namespace GameEntity
     {
         public StoneCell()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 2;
             texture = Util.Content.Load<Texture2D>("stone");
             isPassable = false;
         }

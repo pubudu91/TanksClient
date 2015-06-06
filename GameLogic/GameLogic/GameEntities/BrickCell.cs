@@ -48,6 +48,10 @@ namespace GameEntity
 
         public BrickCell()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 1;
             isPassable = false;
             texture = Util.Content.Load<Texture2D>("brick_1");
         }

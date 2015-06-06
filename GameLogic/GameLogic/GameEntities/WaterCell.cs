@@ -13,6 +13,10 @@ namespace GameEntity
     {
         public WaterCell()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 3;
             texture = Util.Content.Load<Texture2D>("water");
             isPassable = false;
         }

@@ -17,6 +17,10 @@ namespace GameEntity
 
         public CoinPile()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 5;
             texture = Util.Content.Load<Texture2D>("coin");
             isPassable = true;
         }

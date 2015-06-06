@@ -41,6 +41,11 @@ namespace GameEntity
             return obj;
         }
 
+        public Cell[,] GetGrid()
+        {
+            return grid;
+        }
+
         public void initializeGrid(List<Position> bricks, List<Position> stone, List<Position> water)
         {
             for (int i = 0; i < bricks.Count; i++)

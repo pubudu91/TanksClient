@@ -13,6 +13,10 @@ namespace GameEntity
     {
         public EmptyCell()
         {
+            F = -1;
+            G = 0;
+            H = 0;
+            priority = 0;
             texture = Util.Content.Load<Texture2D>("sand");
             isPassable = false;
         }
